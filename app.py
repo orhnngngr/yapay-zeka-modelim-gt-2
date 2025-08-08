@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, make_response, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -11,6 +11,11 @@ def load_theme(theme_name='default'):
         'static': f'static/themes/{theme_name}',
         'template': f'themes/{theme_name}'
     }
+
+
+def get_recent_activities():
+    """Return a list of recent activities for the dashboard."""
+    return []
 
 # Tema seçimi middleware'i
 @app.before_request
