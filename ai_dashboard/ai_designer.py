@@ -23,8 +23,8 @@ except (TypeError, ValueError):
     pass
 
 # 'generate_ui' modülünün bulunabilmesi için projenin kök dizinini yola ekle
-# Bu, betiğin projenin herhangi bir alt klasöründen çalıştırılabilmesini sağlar.
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Bu dosya "ai_dashboard" klasöründe yer aldığından, kök dizine erişmek için iki seviye yukarı çıkılır.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
