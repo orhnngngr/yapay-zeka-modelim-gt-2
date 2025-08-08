@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, g, make_response, redirect, url_for
 import os
+import random
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -20,8 +21,13 @@ def get_recent_activities():
 # Tema seçimi middleware'i
 @app.before_request
 def set_theme():
-    g.theme = request.cookies.get('theme', 'default')
-    g.theme_config = load_theme(g.theme)
+    themes = [
+        d for d in os.listdir("static/themes")
+        if os.path.isdir(os.path.join("static/themes", d))
+    ]
+    selected_theme = random.choice(themes)
+    g.theme = selected_theme
+    g.theme_config = load_theme(selected_theme)
 
 # Dinamik template loader
 @app.context_processor
