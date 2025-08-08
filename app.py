@@ -30,7 +30,7 @@ def inject_theme():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return redirect(url_for("dashboard"))
 
 @app.route('/change_theme/<theme_name>')
 def change_theme(theme_name):
