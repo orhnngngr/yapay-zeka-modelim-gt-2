@@ -127,14 +127,14 @@ if __name__ == "__main__":
     print("📦 Klasörler ve dosyalar hazırlandı.")
 
     observer = Observer()
-observer.schedule(NewFileHandler(), path=".", recursive=True)
-observer.start()
-print("👁 İzleme başlatıldı...")
-try:
-    while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    observer.stop()
-    print("🛑 İzleme durdu.")
-observer.join()
+    observer.schedule(NewFileHandler(), path=".", recursive=True)
+    observer.start()
+    print("👁 İzleme başlatıldı...")
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+        print("🛑 İzleme durdu.")
+    observer.join()
 
