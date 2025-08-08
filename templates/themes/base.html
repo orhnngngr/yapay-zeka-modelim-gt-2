@@ -2,9 +2,9 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}{% endblock %} | {{ theme.name }}</title>
+    <title>{% block title %}{% endblock %} | {{ theme|capitalize }}</title>
     <link
-      href="{{ url_for('static', filename='themes/'+theme+'/css/main.css') }}"
+      href="{{ url_for('static', filename='themes/' + theme + '/css/main.css') }}"
       rel="stylesheet"
     />
     {% block head %}{% endblock %}
@@ -16,6 +16,6 @@
       <div class="content-area">{% block content %}{% endblock %}</div>
     </div>
 
-    <script src="{{ url_for('static', filename='themes/'+theme+'/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='themes/' + theme + '/js/main.js') }}"></script>
   </body>
 </html>

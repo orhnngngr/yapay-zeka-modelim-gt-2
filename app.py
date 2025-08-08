@@ -32,7 +32,7 @@ def set_theme():
 # Dinamik template loader
 @app.context_processor
 def inject_theme():
-    return dict(theme=g.theme_config)
+    return dict(theme=g.theme)
 
 @app.route("/")
 def index():
