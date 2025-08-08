@@ -87,7 +87,7 @@ def create_design_json():
     print(f"Yeni tasarım dosyası: {file_path}")
 
     # HTML/CSS üret
-    generate_ui_from_design(file_path)
+    generate_ui_from_design(design_file_path=file_path)
 
 if __name__ == "__main__":
     create_design_json()
