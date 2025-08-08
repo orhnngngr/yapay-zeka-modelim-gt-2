@@ -1,0 +1,10 @@
+{
+    "name": "Varsayılan Tema",
+    "version": "1.0",
+    "styles": {
+        "primary": "#3498db",
+        "secondary": "#2ecc71",
+        "text": "#333333"
+    },
+    "features": ["responsive", "dark-mode", "widget-system"]
+}

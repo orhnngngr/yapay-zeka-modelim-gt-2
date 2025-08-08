@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hata {{ hata_kodu }}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #d9534f;
+      }
+      a {
+        color: #337ab7;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hata {{ hata_kodu }}</h1>
+      <p>{{ hata_mesajı }}</p>
+      <a href="/">Ana sayfaya dön</a>
+    </div>
+  </body>
+</html>

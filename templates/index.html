@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ başlık }}</title>
+  </head>
+  <body>
+    <h1>{{ başlık }}</h1>
+    <p>{{ içerik }}</p>
+
+    <form id="veriFormu">
+      <input type="text" name="veri" placeholder="Türkçe metin girin..." />
+      <button type="submit">Gönder</button>
+    </form>
+
+    <div id="sonuc"></div>
+
+    <script>
+      document
+        .getElementById("veriFormu")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+
+          try {
+            const response = await fetch("/gonder", {
+              method: "POST",
+              body: new URLSearchParams(formData),
+            });
+
+            const data = await response.json();
+            document.getElementById("sonuc").innerHTML = `
+                    <p>Orjinal: ${data.orjinal_veri}</p>
+                    <p>İşlenmiş: ${data.işlenmiş_veri}</p>
+                `;
+          } catch (error) {
+            console.error("Hata:", error);
+          }
+        });
+    </script>
+  </body>
+</html>

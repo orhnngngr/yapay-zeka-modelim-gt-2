@@ -1,0 +1,37 @@
+{
+  "title": "Modern Yönetim Paneli",
+  "header": "Otomatik Tasarım",
+  "description": "Otomasyon ve yaratıcılık birleşti!\n(01:07:28 saatinde üretildi.)",
+  "layout": "sidebar",
+  "widgets": [
+    "progress"
+  ],
+  "background": "#f4f4f4",
+  "color": "#333",
+  "primary": "#2563eb",
+  "accent": "#60a5fa",
+  "cards": [
+    {
+      "title": "Motivasyon",
+      "content": "Bugün öğrenmek için iyi bir gün!"
+    },
+    {
+      "title": "Haber",
+      "content": "Yeni güncellemeler eklendi."
+    },
+    {
+      "title": "Rastgele Not",
+      "content": "Kodlama bir sanattır."
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Kaydet",
+      "action": "#"
+    },
+    {
+      "text": "Yeniden Oluştur",
+      "action": "#"
+    }
+  ]
+}

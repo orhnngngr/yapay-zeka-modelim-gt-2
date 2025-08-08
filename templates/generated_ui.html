@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Yönetim Paneli</title>
+    <link rel="stylesheet" href="/static/css/generated_ui.css?v=1753816098">
+</head>
+<body>
+    <header>
+        <h1>Otomatik Tasarım</h1>
+        <p>Otomasyon ve yaratıcılık birleşti!
+(01:07:28 saatinde üretildi.)</p>
+    </header>
+    <main>
+        <section class="cards">
+            <div class="card"><h3>Motivasyon</h3><p>Bugün öğrenmek için iyi bir gün!</p></div><div class="card"><h3>Haber</h3><p>Yeni güncellemeler eklendi.</p></div><div class="card"><h3>Rastgele Not</h3><p>Kodlama bir sanattır.</p></div>
+        </section>
+        <section class="buttons">
+            <button onclick="window.location='#'">Kaydet</button><button onclick="window.location='#'">Yeniden Oluştur</button>
+        </section>
+
+        <section class="feedback">
+            <button onclick="sendFeedback(true)">👍 Beğendim</button>
+            <button onclick="sendFeedback(false)">👎 Beğenmedim</button>
+        </section>
+
+        <section class="buttons">
+            <button onclick="regenerateUI()">Yeniden Oluştur</button>
+            <button onclick="window.location='/generated_ui'">Raporları Gör</button>
+        </section>
+    </main>
+
+<script>
+function regenerateUI() {
+    fetch('/api/regenerate_ui', {method: 'POST'})
+        .then(r => r.json())
+        .then(data => {
+            if (data.status === "ok") {
+                document.open();
+                document.write(data.html);
+                document.close();
+            } else {
+                alert("Hata: " + data.message);
+            }
+        })
+}
+function sendFeedback(approved) {
+    fetch('/feedback', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            approved: approved,
+            comments: approved ? "Beğendim" : "Beğenmedim"
+        })
+    })
+    .then(r => r.json())
+    .then(data => alert("Geri bildiriminiz kaydedildi!"));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %} | {{ theme.name }}</title>
+    <link
+      href="{{ url_for('static', filename='themes/'+theme+'/css/main.css') }}"
+      rel="stylesheet"
+    />
+    {% block head %}{% endblock %}
+  </head>
+  <body class="theme-{{ theme }}">
+    <div class="dashboard-container">
+      {% include 'layout/sidebar.html' %}
+
+      <div class="content-area">{% block content %}{% endblock %}</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='themes/'+theme+'/js/main.js') }}"></script>
+  </body>
+</html>

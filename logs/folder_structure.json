@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-07-26T00:20:01.250202",
+  "created": [
+    ".\\static",
+    ".\\static\\css",
+    ".\\static\\js",
+    ".\\static\\images",
+    ".\\templates",
+    ".\\model",
+    ".\\data",
+    ".\\logs",
+    ".\\ai_dashboard",
+    ".\\ai_dashboard\\components",
+    ".\\ai_dashboard\\assets",
+    "templates/index.html",
+    "static/css/style.css",
+    "static/js/app.js",
+    "app.py"
+  ]
+}
