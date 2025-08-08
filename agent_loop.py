@@ -3,7 +3,7 @@ import time
 import json
 import random
 from datetime import datetime
-from ai_dashboard.ai_designer import create_design_json
+from ai_dashboard.create_design import create_design_json
 from generate_ui import generate_ui_from_design
 from ai_core.feedback_manager import get_feedback_history
 
