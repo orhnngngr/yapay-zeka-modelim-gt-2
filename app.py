@@ -1,8 +1,11 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, make_response, redirect, url_for
 import os
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
+try:
+    app.config.from_pyfile('config.py')
+except FileNotFoundError:
+    pass
 
 # Tema yükleme fonksiyonu
 def load_theme(theme_name='default'):
@@ -33,7 +36,12 @@ def change_theme(theme_name):
 def dashboard():
     theme = g.theme
     if theme == 'admin':
-        return render_template(f'themes/{theme}/dashboard.html', 
-                           activities=get_recent_activities())
-    else:
-        return render_template(f'themes/{theme}/dashboard.html')
+        return render_template(
+            f'themes/{theme}/dashboard.html', activities=get_recent_activities()
+        )
+    return render_template(f'themes/{theme}/dashboard.html')
+
+
+def get_recent_activities():
+    """Return placeholder data for recent activities."""
+    return [{"user": "system", "activity": "no recent activities"}]
