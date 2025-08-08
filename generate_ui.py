@@ -14,23 +14,17 @@ def get_latest_design_file():
         return "data/design.json"
     raise FileNotFoundError("Hiçbir tasarım dosyası bulunamadı.")
 
-def generate_ui_from_design(*args, **kwargs):
-    if args and isinstance(args[0], str):
-        design_file = args[0]
-    else:
-        design_file = kwargs.get("design_file_path")
-
-    if not design_file:
-        design_file = get_latest_design_file()
+def generate_ui_from_design(design_file_path=None, output_html_path="templates/generated_ui.html", output_css_path="static/css/generated_ui.css"):
+    design_file = design_file_path or get_latest_design_file()
 
     with open(design_file, "r", encoding="utf-8") as f:
         design = json.load(f)
 
-    os.makedirs("templates", exist_ok=True)
-    os.makedirs("static/css", exist_ok=True)
+    os.makedirs(os.path.dirname(output_html_path), exist_ok=True)
+    os.makedirs(os.path.dirname(output_css_path), exist_ok=True)
 
-    html_path = "templates/generated_ui.html"
-    css_path = "static/css/generated_ui.css"
+    html_path = output_html_path
+    css_path = output_css_path
 
     # HTML
     css_version = int(time.time())

@@ -103,7 +103,7 @@ class NewFileHandler(FileSystemEventHandler):
         """design.json dosyasını yakalayıp UI üretir"""
         if file_path.endswith("design.json"):
             print("🎨 Yeni tasarım dosyası algılandı, arayüz oluşturuluyor...")
-            generate_ui_from_design(file_path)
+            generate_ui_from_design(design_file_path=file_path)
 
     def on_created(self, event):
         if not event.is_directory:

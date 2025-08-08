@@ -95,7 +95,7 @@ def update_design_based_on_feedback():
     else:
         # sadece refresh
         if os.path.exists(DESIGN_FILE):
-            generate_ui_from_design(DESIGN_FILE)
+            generate_ui_from_design(design_file_path=DESIGN_FILE)
             print("🔄 Mevcut tasarımdan UI yeniden üretildi.")
 
 def agent_loop():
