@@ -28,6 +28,10 @@ def set_theme():
 def inject_theme():
     return dict(theme=g.theme_config)
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+
 @app.route('/change_theme/<theme_name>')
 def change_theme(theme_name):
     response = make_response(redirect(request.referrer or url_for('index')))
